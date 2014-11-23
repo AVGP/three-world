@@ -42,6 +42,8 @@ var World = (function() {
     render();
   }
 
+  self.getCamera = function() { return camera; };
+
   return self;
 })();
 

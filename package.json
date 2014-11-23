@@ -1,6 +1,6 @@
 {
   "name": "three-world",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A convenience wrapper around Three.js to create a scene, camera and renderer",
   "main": "world.js",
   "scripts": {

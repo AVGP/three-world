@@ -38,6 +38,7 @@ var World = (function() {
 
     renderer = new THREE.WebGLRenderer(options.rendererOpts);
     renderer.setSize(window.innerWidth, window.innerHeight);
+    if(options.clearColor) renderer.setClearColor(options.clearColor);
 
     var container = options.container || document.body;
     container.appendChild(renderer.domElement);

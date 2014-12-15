@@ -36,7 +36,7 @@ var World = (function() {
     var ambient = new THREE.AmbientLight(options.ambientLightColor || 0xffffff);
     scene.add(ambient);
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer(options.rendererOpts);
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     var container = options.container || document.body;

@@ -11,6 +11,15 @@ var World = (function() {
     requestAnimationFrame(render);
   }
 
+	function onWindowResize() {
+
+		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize( window.innerWidth, window.innerHeight );
+
+	}
+
   // Exports
 
   self.init = function(options) {
@@ -32,6 +41,8 @@ var World = (function() {
 
     var container = options.container || document.body;
     container.appendChild(renderer.domElement);
+
+    window.addEventListener( 'resize', onWindowResize, false );
   }
 
   self.add = function(object) {

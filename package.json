@@ -1,11 +1,8 @@
 {
   "name": "three-world",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A convenience wrapper around Three.js to create a scene, camera and renderer",
   "main": "world.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/avgp/three-world.git"

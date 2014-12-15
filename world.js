@@ -16,7 +16,7 @@ var World = (function() {
   self.init = function(options) {
     if(!options) options = {};
 
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, options.farPlane || 2000);
     camera.position.z = options.camDistance || 100;
     frameCallback = options.renderCallback;
 

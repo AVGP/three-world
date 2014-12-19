@@ -12,11 +12,13 @@ var World = (function() {
   }
 
 	function onWindowResize() {
+    var width  = options.container ? options.container.clientWidth  : window.innerWidth,
+        height = options.container ? options.container.clientHeight : window.innerHeight;
 
-		camera.aspect = window.innerWidth / window.innerHeight;
+		camera.aspect = width / height;
 		camera.updateProjectionMatrix();
 
-		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.setSize( width, height );
 
 	}
 
@@ -25,7 +27,10 @@ var World = (function() {
   self.init = function(options) {
     if(!options) options = {};
 
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, options.farPlane || 2000);
+    var width  = options.container ? options.container.clientWidth  : window.innerWidth,
+        height = options.container ? options.container.clientHeight : window.innerHeight;
+
+    camera = new THREE.PerspectiveCamera(45, width/height, 1, options.farPlane || 2000);
     camera.position.z = options.camDistance || 100;
     frameCallback = options.renderCallback;
 
@@ -37,7 +42,7 @@ var World = (function() {
     scene.add(ambient);
 
     renderer = new THREE.WebGLRenderer(options.rendererOpts);
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
     if(options.clearColor) renderer.setClearColor(options.clearColor);
 
     var container = options.container || document.body;

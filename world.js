@@ -33,7 +33,7 @@ var World = (function() {
 
     scene = new THREE.Scene();
 
-    var ambient = new THREE.AmbientLight(options.ambientLightColor || 0xffffff);
+    var ambient = new THREE.AmbientLight(options.ambientLightColor === undefined ? 0xffffff : options.ambientLightColor);
     scene.add(ambient);
 
     renderer = new THREE.WebGLRenderer(options.rendererOpts);

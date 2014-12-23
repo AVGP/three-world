@@ -3,7 +3,7 @@ var THREE = require('three');
 var World = (function() {
   // Internals
 
-  var camera, scene, renderer, frameCallback, self = {};
+  var camera, scene, renderer, frameCallback, container, self = {};
 
   function render() {
     if(frameCallback) frameCallback();
@@ -11,9 +11,9 @@ var World = (function() {
     requestAnimationFrame(render);
   }
 
-	function onWindowResize() {
-    var width  = options.container ? options.container.clientWidth  : window.innerWidth,
-        height = options.container ? options.container.clientHeight : window.innerHeight;
+	function onResize() {
+    var width  = container ? container.clientWidth  : window.innerWidth,
+        height = container ? container.clientHeight : window.innerHeight;
 
 		camera.aspect = width / height;
 		camera.updateProjectionMatrix();
@@ -33,6 +33,7 @@ var World = (function() {
     camera = new THREE.PerspectiveCamera(45, width/height, 1, options.farPlane || 2000);
     camera.position.z = options.camDistance || 100;
     frameCallback = options.renderCallback;
+    container = options.container;
 
     // scene
 
@@ -48,12 +49,14 @@ var World = (function() {
     var container = options.container || document.body;
     container.appendChild(renderer.domElement);
 
-    window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener( 'resize', onResize, false );
   }
 
   self.add = function(object) {
     scene.add(object);
   }
+
+  self.recalculateSize = onResize;
 
   self.startRenderLoop = function() {
     render();

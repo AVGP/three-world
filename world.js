@@ -60,7 +60,9 @@ var World = (function() {
   }
 
   self.getCamera = function() { return camera; };
-
+  self.getRenderer = function() { return renderer; };
+  self.getScene = function() { return scene; };
+  
   return self;
 })();
 

@@ -5,7 +5,10 @@ var World = (function() {
 
   var camera, scene, renderer, frameCallback, container, self = {};
 
+  var paused = false;
+
   function render() {
+    if (paused) return;
     if(frameCallback) frameCallback();
     renderer.render(scene, camera);
     requestAnimationFrame(render);
@@ -60,6 +63,19 @@ var World = (function() {
 
   self.startRenderLoop = function() {
     render();
+  }
+
+  self.pauseRenderLoop = function() {
+    paused = true;
+  }
+
+  self.resumeRenderLoop = function() {
+    paused = false;
+    render();
+  }
+
+  self.renderLoopIsPaused = function() {
+    return paused;
   }
 
   self.getCamera = function() { return camera; };

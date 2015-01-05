@@ -14,16 +14,16 @@ var World = (function() {
     requestAnimationFrame(render);
   }
 
-	function onResize() {
+  function onResize() {
     var width  = container ? container.clientWidth  : window.innerWidth,
         height = container ? container.clientHeight : window.innerHeight;
 
-		camera.aspect = width / height;
-		camera.updateProjectionMatrix();
+	camera.aspect = width / height;
+	camera.updateProjectionMatrix();
 
-		renderer.setSize( width, height );
+	renderer.setSize( width, height );
 
-	}
+  }
 
   // Exports
 
@@ -61,20 +61,20 @@ var World = (function() {
 
   self.recalculateSize = onResize;
 
-  self.startRenderLoop = function() {
+  self.start = function() {
     render();
   }
 
-  self.pauseRenderLoop = function() {
+  self.pause = function() {
     paused = true;
   }
 
-  self.resumeRenderLoop = function() {
+  self.resume = function() {
     paused = false;
     render();
   }
 
-  self.renderLoopIsPaused = function() {
+  self.isPaused = function() {
     return paused;
   }
 

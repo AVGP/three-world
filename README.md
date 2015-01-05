@@ -17,5 +17,23 @@ Convenience wrapper around Three.js to create a scene, camera and renderer quick
 
   world.init({ camDistance: 50, renderCallback: onRendered });
   world.add(mesh);
-  world.startRenderLoop();
+  world.start();
+```
+
+You can also `pause` and `resume` the world, if you so wish:
+
+```javascript
+  world.start();
+  ...
+  world.pause();
+  console.log(world.isPaused());
+  world.resume();
+```
+
+In addition you can get the Camera, Scene and Renderer:
+
+```javascript
+  var cam      = world.getCamera(),
+      scene    = world.getScene(),
+      renderer = world.getRenderer();
 ```

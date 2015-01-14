@@ -37,3 +37,14 @@ In addition you can get the Camera, Scene and Renderer:
       scene    = world.getScene(),
       renderer = world.getRenderer();
 ```
+
+## Available options
+
+| Option | Description | Default |
+| --- | --- | --- |
+| ambientLightColor | Color of the ambient light. Optional. | 0xffffff (white) |
+| camDistance | Position on the z-axis where the camera should initially be. Optional. | 100 |
+| clearColor | Color that is used to clear the canvas. Optional. | 0 (black) |
+| container | Element that the renderer should be appended to. Optional. | document.body |
+| farPlane | Maximum distance from the camera that is still rendered. Optional. | 2000 |
+| renderCallback | Callback function that is called right before rendering a new frame. Optional | undefined |

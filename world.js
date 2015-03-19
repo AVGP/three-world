@@ -9,7 +9,12 @@ var World = (function() {
 
   function render() {
     if (paused) return;
-    if(frameCallback) frameCallback();
+    if(frameCallback) {
+      if(frameCallback() === false) {
+        requestAnimationFrame(render);
+        return;
+      }
+    }
     renderer.render(scene, camera);
     requestAnimationFrame(render);
   }
@@ -81,7 +86,7 @@ var World = (function() {
   self.getCamera = function() { return camera; };
   self.getRenderer = function() { return renderer; };
   self.getScene = function() { return scene; };
-  
+
   return self;
 })();
 

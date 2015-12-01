@@ -64,6 +64,10 @@ var World = (function() {
     scene.add(object);
   }
 
+  self.remove = function(object) {
+    scene.remove(object);
+  }
+
   self.recalculateSize = onResize;
 
   self.start = function() {

@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/avgp/three-world",
   "dependencies": {
-    "three": "^0.73.0"
+    "three": "^0.85.0"
   }
 }
